@@ -15,6 +15,12 @@
 };
 
 / {
+    aliases {
+        led-red = &led0;
+        led-green = &led1;
+        led-blue = &led2;
+    };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
         tri_layer {
