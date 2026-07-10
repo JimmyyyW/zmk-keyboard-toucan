@@ -29,28 +29,6 @@
         };
     };
 
-    combos {
-        compatible = "zmk,combos";
-
-        // FLASH LEFT HALF: Safe Q + W Combo
-        combo_boot_left {
-            timeout-ms = <40>;              // Tightened to require near-simultaneous press
-            require-prior-idle-ms = <200>;  // MUST be completely idle for 200ms first
-            key-positions = <0 1>; 
-            bindings = <&bootloader>;
-            layers = <0>; 
-        };
-
-        // FLASH RIGHT HALF: Safe I + O Combo
-        combo_boot_right {
-            timeout-ms = <40>;
-            require-prior-idle-ms = <200>;  // MUST be completely idle for 200ms first
-            key-positions = <8 9>; 
-            bindings = <&bootloader>;
-            layers = <0>;
-        };
-    };
-
     keymap {
         compatible = "zmk,keymap";
 
@@ -68,7 +46,7 @@
             display-name = "NAV";
             bindings = <
                 &kp TAB     &kp N1          &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-                &bt BT_CLR  &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
+                &trans      &bt BT_SEL 0    &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
                 &kp LSHFT   &studio_unlock  &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
                                                 &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
             >;
@@ -87,9 +65,9 @@
         adj {
             display-name = "ADJ";
             bindings = <
-                &kp TAB   &trans &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans &trans &kp BSPC
-                &kp LCTRL &trans &kp F4 &kp F5 &kp F6 &kp F11   &trans       &trans      &trans       &trans &trans &trans
-                &bt LSHFT &trans &kp F1 &kp F2 &kp F3 &kp F10   &trans       &trans      &trans       &trans &trans &trans
+                &kp TAB   &bt BT_CLR &kp F7 &kp F8 &kp F9 &kp F12   &kp C_VOL_DN &kp C_MUTE  &kp C_VOL_UP &trans       &trans       &kp BSPC
+                &kp LCTRL &trans      &kp F4 &kp F5 &kp F6 &kp F11   &trans       &trans      &trans       &trans       &trans       &trans
+                &bootloader &trans    &kp F1 &kp F2 &kp F3 &kp F10   &trans       &trans      &trans       &trans       &trans       &bootloader
                                    &kp LGUI &mo NAV &kp SPACE   &kp RET &mo 2 &kp RALT
             >;
         };
